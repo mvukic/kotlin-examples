@@ -1,4 +1,4 @@
-package basic;
+package basic.types;
 
 
 // 1. Same class name and file name

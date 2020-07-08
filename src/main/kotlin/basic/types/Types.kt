@@ -1,4 +1,4 @@
-package basic
+package basic.types
 
 // function without parent class
 fun main() {

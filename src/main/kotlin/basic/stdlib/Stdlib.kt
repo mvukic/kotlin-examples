@@ -1,4 +1,4 @@
-package basic
+package basic.stdlib
 
 fun main() {
   var name = "name"
@@ -31,4 +31,10 @@ fun main() {
     "Not null: $uppercase"
   } ?: "Nullable name was null"
 
+
+  // helper classes
+  val point2d = Pair<Int, Int>(1, 2)
+  println(point2d.first)
+  val point3d = Triple<Int, Float, Int>(1, 2.5f, 3)
+  println(point3d.second)
 }
