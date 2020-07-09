@@ -1,14 +1,14 @@
 package basic.types;
 
 
-// 1. Same class name and file name
-// 2. Only one public class
+// Same class name and file name
+// Only one public class
 public class Types {
 
     public static void main(String[] args) {
 
-        // 3. can be null
-        // 4. can be mutated
+        // can be null
+        // can be mutated
         Integer number = 12;
         String name = "Name";
 

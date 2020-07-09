@@ -1,5 +1,11 @@
 package basic.types
 
+
+// type alias
+typealias NameType = String
+typealias WordProcessor = (String) -> String
+
+
 // function without parent class
 fun main() {
 
@@ -12,11 +18,5 @@ fun main() {
   println("Some name: ${name.toUpperCase()}, some number: $number")
 
   name = "Some other name"
-
-  outerFunction()
-
-}
-
-fun outerFunction() {
 
 }
