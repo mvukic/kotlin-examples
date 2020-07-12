@@ -1,33 +1,80 @@
 package basic.functions
 
 fun main() {
-  val name = "Name"
-  someFunction(name)
 
-  funAsParameter(name, { value -> value })
-  funAsParameter(name) {value ->
-    "$value$value"
-  }
-
-  funAsParameter(name) {
-    "$it$it"
-  }
-
-  // function as a value
-  val funAsValue: (String) -> String = {value -> "$value$value"}
-  println(funAsValue("name"))
+  callingAFunction()
+  functionAsAValue()
 
 }
 
-// top level in a file
-fun someFunction(name: String): String {
+
+
+fun notReturning(): Unit {
+  println("No return type (Actually it is Unit)")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fun nameMapper(name: String, mapper: (String) -> String): String {
+  return mapper(name)
+}
+
+fun nameMapperFn(name: String): String {
   return "$name$name"
 }
-// shorter
-fun someFunction2(name: String) = "$name$name"
 
+fun callingAFunction() {
+  val name = "Name"
+  nameMapperFn(name)
 
-fun funAsParameter(name: String, func: (String) -> String): String {
-  println(name)
-  return func(name)
+  // function reference as a name
+  nameMapper(name, ::nameMapperFn)
+
+  // lambda function
+  nameMapper(name, { value -> "$value$value" })
+  nameMapper(name, { "$it$it" })
+  nameMapper(name) { "$it$it" }
+
+  // anonymous function
+  nameMapper(name, fun (value: String): String {
+      println(value)
+      return "$value$value"
+  })
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fun functionAsAValue() {
+  // function stored in a value (nested functions)
+  val funAsValue: (String) -> String = { value -> "$value$value" }
+  println(funAsValue("name"))
+}
+
