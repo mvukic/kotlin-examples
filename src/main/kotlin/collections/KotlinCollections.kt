@@ -1,119 +1,110 @@
 package collections
 
+import java.util.stream.Collectors
+
+// define collections using build methods
+// - differentiates mutable collections
+
+
+// String list
+// - for loop
+// - foreach
+
+
+// String array
+// - not available in kotlin
+// - but has: IntArray, ShortArray
+
+
+// String map
+// - for entry
+// - for key, value pairs
+// - forEach entry
+// - forEach key, value pairs
+// - implement to function and change it to infix
+
+
+// filter and map using stream and native extension methods
+
+
+// 'a'..'z'
+// 0..20
+
 fun main() {
+    val stringList = listOf(
+        "Str 1",
+        "Str Str 2",
+        "Str 3",
+        "Str Str 4"
+    )
+    for (value in stringList) {
+        println(value)
+    }
+    stringList.forEach { value ->
+        println(value)
+    }
 
-  // List java way
-  val namesJavaWay = ArrayList<String>()
-  namesJavaWay.add("Name 1")
-  namesJavaWay.add("Name longer  1")
-  namesJavaWay.add("Name 3")
-  namesJavaWay.add("Name longer 2")
+    val intArray = intArrayOf(
+        1,
+        2,
+        3
+    )
+    intArray.forEach { value ->
+       println(value)
+    }
 
-  // List kotlin way
-  val names = listOf("Name 1", "Name longer  1", "Name 3", "Name longer 2")
 
-  forLoops(names)
-  functional(names)
-  sequences()
+    val stringMap = mapOf(
+        Pair("Key1", "Value1"),
+        Pair("Key2", "Value2"),
+        Pair("Key3", "Value3"),
+        "Key4".withValue("Value4")
+    )
+    for (entry in stringMap.entries) {
+        println("${entry.key} -> ${entry.value}")
+    }
+    for ((key, value) in stringMap.entries) {
+        println("$key -> $value")
+    }
+    stringMap.forEach { entry ->
+        println("${entry.key} -> ${entry.value}")
+    }
+    stringMap.forEach { (key, value) ->
+        println("$key -> $value")
+    }
+
+
+
+
+
+
+
+
+    val longValues = stringList
+        .stream()
+        .filter { value -> value.length > 4 }
+        .map { value -> "$value-$value" }
+        .collect(Collectors.toList())
+
+    for (value in longValues) {
+        println(value)
+    }
+
+
+
+
+
+
+
+    val letters = ('a'..'z').toList()
+    println(letters)
+
+    val numbers = (0..10).toList()
+    println(numbers)
+
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fun forLoops(names: List<String>) {
-  // For loop
-  for (name: String in names) {
-    println(name)
-  }
-
-  // Indexed for loop
-  for ((index, name) in names.withIndex()) {
-    println("Index: $index, Names: $name")
-  }
-
-
-  for (i: Int in names.indices) {
-    println(names[i])
-  }
-
-  // Indexed for each
-  names.forEachIndexed { index, name ->
-    println("Index: $index, Names: $name")
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fun functional(names: List<String>) {
-  // Native support for functional concepts (e.g. filter, map, flatMap, ...)
-  val uppercaseNames = names.filter { name -> name.length > 8 }.map { name -> name.toUpperCase() }
-  println(uppercaseNames)
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fun sequences() {
-  // Generate first 10 even numbers
-  // Sequences - like Streams in java but simplified and more powerful
-  val evenNumbers = generateSequence(0, { prev -> prev + 1 }).filter { number -> number % 2 == 0 }.take(10).toList()
-  println(evenNumbers)
+fun <A, B> A.withValue(that: B): Pair<A, B> {
+    return Pair(this, that)
 }
