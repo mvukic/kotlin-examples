@@ -26,10 +26,6 @@ import java.util.stream.Collectors
 
 // filter and map using stream and native extension methods
 
-
-// 'a'..'z'
-// 0..20
-
 fun main() {
     val stringList = listOf(
         "Str 1",
@@ -89,18 +85,6 @@ fun main() {
     for (value in longValues) {
         println(value)
     }
-
-
-
-
-
-
-
-    val letters = ('a'..'z').toList()
-    println(letters)
-
-    val numbers = (0..10).toList()
-    println(numbers)
 
 
 }

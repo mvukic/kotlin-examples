@@ -1,1 +1,3 @@
 package singleton
+
+object KotlinSingleton

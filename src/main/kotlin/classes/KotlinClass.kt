@@ -17,22 +17,23 @@ package classes
 
 // interoperability java <-> kotlin
 
+class KotlinClass constructor(name: String, age: Int) {
 
-class KotlinClass constructor(name: String) {
-
-    private val name: String
+    val name: String
+    val age: Int
 
     init {
         println("Primary with $name")
         println("Init block 1")
         this.name = name
+        this.age = age;
     }
 
     init {
         println("Init block 2")
     }
 
-    constructor(): this("Default") {
+    constructor(): this("Default", 0) {
         println("secondary with $name")
     }
 
@@ -56,7 +57,13 @@ class Javascript : Language("Javascript")
 
 fun main() {
     KotlinClass()
-    KotlinClass(name = "Name")
+    KotlinClass(name = "Name", age = 25)
     println(KotlinClass.constValue)
     KotlinClass.staticFun()
+
+    // Interoperability with java
+    val javaClass = JavaClass("Name", 25)
+    // get/set as a property
+    javaClass.age
+    javaClass.name
 }

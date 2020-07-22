@@ -6,19 +6,11 @@ fun main() {
     val str2 = "2"
     val interpolated = "$str1 $str2"
 
-    // no System.out.println()
-    println("Some string")
 
-    // most of the things are expressions and statements
-    fun someFun1(): String {
-        return "Some string"
-    }
+    // elvis operator - nullability check
+    val number: Int? = null
 
-    fun someFun2() = "Some string"
-
+    println(number?.times(number))
+    println(number?.times(number) ?: 0)
 
 }
-
-
-
-

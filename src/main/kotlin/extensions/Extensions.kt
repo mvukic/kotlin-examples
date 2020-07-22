@@ -5,7 +5,7 @@ package extensions
 
 
 // extending existing classes
-// - ability to add functionality to third party classes
+// - ability to add functionality to third party classes (without extending!)
 // - add features to old classes without changing their signature
 
 // extension functions
