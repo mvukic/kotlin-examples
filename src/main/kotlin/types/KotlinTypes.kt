@@ -1,14 +1,5 @@
 package types
 
-
-
-
-
-
-
-
-
-
 fun main() {
   // the same (mostly) types as in Java
   // - unboxed (if possible) during compile time
@@ -26,7 +17,7 @@ fun main() {
   e?.length
 
   // Strongly discouraged
-//  e!!.length
+  //  e!!.length
 
   // smart cast
   if (e != null) {

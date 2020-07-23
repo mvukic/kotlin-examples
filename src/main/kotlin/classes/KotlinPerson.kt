@@ -10,6 +10,8 @@ package classes
 // no static but has companion object (can have static properties and methods)
 
 // data classes (java 15+ will have records)
+// - destructuring
+// - copy
 
 // sealed classes
 // - limits to who can extend the class
@@ -17,7 +19,7 @@ package classes
 
 // interoperability java <-> kotlin
 
-class KotlinClass constructor(name: String, age: Int) {
+class KotlinPerson constructor(name: String, age: Int) {
 
     val name: String
     val age: Int
@@ -37,7 +39,8 @@ class KotlinClass constructor(name: String, age: Int) {
         println("secondary with $name")
     }
 
-    companion object {
+    // without name, in Java it will be called Companion
+    companion object StaticThings{
         val constValue = "Const"
 
         fun staticFun() {
@@ -56,13 +59,13 @@ class Python : Language("Python")
 class Javascript : Language("Javascript")
 
 fun main() {
-    KotlinClass()
-    KotlinClass(name = "Name", age = 25)
-    println(KotlinClass.constValue)
-    KotlinClass.staticFun()
+    KotlinPerson()
+    KotlinPerson(name = "Name", age = 25)
+    println(KotlinPerson.constValue)
+    KotlinPerson.staticFun()
 
     // Interoperability with java
-    val javaClass = JavaClass("Name", 25)
+    val javaClass = JavaPerson("Name", 25)
     // get/set as a property
     javaClass.age
     javaClass.name

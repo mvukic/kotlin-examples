@@ -1,12 +1,12 @@
 package classes;
 
-public class JavaClass {
+public class JavaPerson {
 
     private String name;
 
     private Integer age;
 
-    public JavaClass(String name, Integer age) {
+    public JavaPerson(String name, Integer age) {
         this.name = name;
         this.age = age;
     }
@@ -40,10 +40,15 @@ public class JavaClass {
 
     public static void main(String[] args) {
         // Interoperability with kotlin
-        var kotlinClass = new KotlinClass("Name", 25);
+        var kotlinPerson = new KotlinPerson("Name", 25);
         // properties as get/set methods
-        kotlinClass.getAge();
-        kotlinClass.getName();
+        kotlinPerson.getAge();
+        kotlinPerson.getName();
+
+        // get/set for static properties
+        KotlinPerson.StaticThings.getConstValue();
+        KotlinPerson.StaticThings.staticFun();
+
 
     }
 
