@@ -1,7 +1,5 @@
 package collections
 
-import java.util.stream.Collectors
-
 fun main() {
 
     // String map
@@ -11,29 +9,37 @@ fun main() {
     // - forEach key, value pairs
     // - implement to function and change it to infix
 
-    val stringMap = mapOf(
-        Pair("Key1", "Value1"),
-        Pair("Key2", "Value2"),
-        Pair("Key3", "Value3"),
 
-      // do this, then create that function
-        "Key4".withValue("Value4")
+    // 1. factory methods
+    // 1. mutableMapOf and mapOf
+    val kotlinMap = mutableMapOf(
+      Pair("Key", "Value1"),
+      Pair("Key2", "Value2"),
+
+      // 2. Then do this, and show how extensions simplify this
+      // 2. Then turn this into infix function
+      // 3. then show that it already exists as "to" in stdlib
+      "Key3".withValue("Value3")
     )
-    for (entry in stringMap.entries) {
+
+    // 3. show how to iterate the map
+    for (entry in kotlinMap.entries) {
         println("${entry.key} -> ${entry.value}")
     }
-    for ((key, value) in stringMap.entries) {
-        println("$key -> $value")
-    }
-    stringMap.forEach { entry ->
+    kotlinMap.forEach { entry ->
         println("${entry.key} -> ${entry.value}")
     }
-    stringMap.forEach { (key, value) ->
+
+    // 3. Destructuring of Pair data class
+    for ((key, value) in kotlinMap.entries) {
+        println("$key -> $value")
+    }
+    kotlinMap.forEach { (key, value) ->
         println("$key -> $value")
     }
 
-
-
+    // 4. Mapping a map to some other map (also supports a lot of extensions)
+    val switchedKeyAndValue = kotlinMap.map { Pair(it.value, it.key) }.toMap()
 
 
 }
