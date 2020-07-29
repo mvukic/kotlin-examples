@@ -1,4 +1,4 @@
-package collections;
+package fridayteammeeting.map;
 
 import java.util.AbstractMap;
 import java.util.HashMap;

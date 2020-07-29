@@ -1,3 +1,0 @@
-package singleton
-
-object KotlinSingleton

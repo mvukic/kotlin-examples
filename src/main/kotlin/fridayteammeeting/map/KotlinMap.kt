@@ -1,4 +1,4 @@
-package collections
+package fridayteammeeting.map
 
 fun main() {
 
@@ -30,7 +30,7 @@ fun main() {
         println("${entry.key} -> ${entry.value}")
     }
 
-    // 3. Destructuring of Pair data class
+    // 3. Destructuring of MutableMap.MutableEntry data class
     for ((key, value) in kotlinMap.entries) {
         println("$key -> $value")
     }
@@ -41,9 +41,12 @@ fun main() {
     // 4. Mapping a map to some other map (also supports a lot of extensions)
     val switchedKeyAndValue = kotlinMap.map { Pair(it.value, it.key) }.toMap()
 
-
 }
 
-fun <A, B> A.withValue(that: B): Pair<A, B> {
-    return Pair(this, that)
+fun String.withValue(value: String): Pair<String, String> {
+    return Pair(this, value)
 }
+
+//fun <A, B> A.withValue(that: B): Pair<A, B> {
+//    return Pair(this, that)
+//}
