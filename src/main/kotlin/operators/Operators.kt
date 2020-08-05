@@ -1,4 +1,4 @@
-package fridayteammeeting.operators
+package operators
 
 // 1. create bag class
 class Bag(val volume: Int = 0) {

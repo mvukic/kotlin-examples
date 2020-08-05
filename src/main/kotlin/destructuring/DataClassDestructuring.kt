@@ -1,4 +1,4 @@
-package fridayteammeeting.destructuring
+package destructuring
 
 
 data class Person(val name: String, val age: Int)

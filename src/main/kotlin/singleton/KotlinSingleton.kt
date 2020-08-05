@@ -1,4 +1,4 @@
-package fridayteammeeting.singleton
+package singleton
 
 object KotlinSingleton {
 

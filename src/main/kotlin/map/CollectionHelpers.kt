@@ -1,4 +1,4 @@
-package fridayteammeeting.map
+package map
 
 data class Bag(val volume: Int = 0, val type: String = "plastic")
 

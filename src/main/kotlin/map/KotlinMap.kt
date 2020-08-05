@@ -1,4 +1,4 @@
-package fridayteammeeting.map
+package map
 
 fun main() {
 

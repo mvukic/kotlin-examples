@@ -1,4 +1,4 @@
-package fridayteammeeting.delegation
+package delegation
 
 // One common use case is storing the values of properties in a map
 // This comes up often in applications like parsing JSON or doing other “dynamic” things

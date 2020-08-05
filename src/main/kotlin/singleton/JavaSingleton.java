@@ -1,4 +1,4 @@
-package fridayteammeeting.singleton;
+package singleton;
 
 // control object creation
 // Singletons often control access to resources such as database connections or sockets

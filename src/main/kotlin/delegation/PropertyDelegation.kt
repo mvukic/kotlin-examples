@@ -1,4 +1,4 @@
-package fridayteammeeting.delegation
+package delegation
 
 
 // https://kotlinlang.org/docs/reference/delegated-properties.html
